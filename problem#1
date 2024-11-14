@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<math.h>
+#define M_PI 3.14159265358979323846
+
+int main(){
+    int m;
+    double lambda,d=1, theta;
+
+    printf("Enter the value of wavelength(nanometers): ");
+    scanf("%lf", &lambda);
+
+    printf("Enter d(slit distance) in micrometers: ");
+    scanf("%lf", &d);
+
+    printf("Enter angle(in degrees): ");
+    scanf("%lf", &theta);
+    //scanf("enter the value of λ,θ,d" ")
+
+    if(lambda<380 || lambda> 750){
+        printf(" Out of range. Please enter a valid number.\n");
+    }
+    else{
+        d*=1000;// CONVERTING D TO nm
+        theta*=(M_PI / 180.0);//CONVERTING THETA TO RADIANS
+        m=(int)(d* sin(theta) / lambda);// VALUE OF M FORMULA
+        printf("%d-th order is the maxima\n", m);
+    }
+
+    return 0;
+
+
+}
